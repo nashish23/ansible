@@ -1,0 +1,15 @@
+---
+#confgiuring httpd conf and sending sample html file
+- name: httpd.conf file
+  become: yes
+  become_user: root
+  copy: src=/etc/ansible/roles/apache/files/httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify:
+  - restart apache service
+
+- name: send index.html
+  become: true
+  become_user: root
+  copy: src=/etc/ansible/roles/apache/files/index.html dest=/var/www/html/index.html
+
+

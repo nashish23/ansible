@@ -1,0 +1,8 @@
+---
+#Installing httpd package
+- name: install apache
+  become: yes
+  become_user: root
+  yum:
+    name: httpd
+    state: latest
